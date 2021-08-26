@@ -1,0 +1,178 @@
+body {
+	background: #f0f0f0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+    padding: 20px;
+    height: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,600,700');
+
+* {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	color: #444;
+}
+
+#payslip {
+	width: calc( 8.5in - 40px );
+	height: calc( 11in - 5px );
+	background:white;
+	padding: 30px 40px;
+}
+
+#hr.new5 {
+	border: 50px powderblue;
+	border-radius: 50px;
+  }
+
+#title {
+	margin-bottom: 20px;
+	font-size: 10px;
+	font-weight: 600;
+}
+#month {
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+}
+#address {
+	margin-bottom: 10px;
+	font-size: 10px;
+	font-weight: 700;
+	text-align: right;
+	
+}
+
+
+
+.content {
+	display: flex;
+	border-bottom: 1px solid #ccc;
+	height: 880px;
+}
+
+.content .left-panel {
+	border-right: 1px solid #ccc;
+	min-width: 100px;
+	padding: 20px 16px 0 0;
+}
+
+.content .right-panel {
+	width: 100%;
+	padding: 10px 0  0 10px;
+}
+
+
+
+
+
+/* new CSS */
+
+.colon{
+	margin-left: -27px;
+}
+.vl {
+	border-left: 2px solid black;
+    height: 172px;
+    margin-left: -43px;
+}
+.vl-small {
+	border-left: 2px solid black;
+    margin-left: 17px;
+    height: 42px;
+}
+.vl-logo {
+	border-left: 2px solid black;
+	height: 88px;
+    margin-left: 17px;
+}
+.deductions{
+	margin-left: 5px;
+}
+.colon1{
+	margin-left: -24px;
+}
+.colon2{
+	margin-left: -84px;
+}
+.values {
+    margin-left: 26px;
+}
+.values3{
+	margin-left: -34px;
+
+}
+.values1{
+	margin-left: -56px;
+	text-align: right;
+}
+.rectangle {
+	height: 96px;
+    width: 679px;
+    border-style: solid;
+    border-color: black;
+    margin-left: 7px;
+}
+.footer-rectangle {
+	height: 39px;
+    width: 700px;
+    border-style: solid;
+    border-color: black;
+    margin-left: -3px;
+}
+.rectangle1 {
+	height: 79%;
+	width: 699px;
+	border-style: solid;
+	border-color: black;
+}
+table  {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+ 
+  text-align: left;
+	padding: 8px;
+	
+}
+#scope {
+	border-top: 1px solid powderblue;
+	border-bottom: 1px solid powderblue;
+	display: flex;
+	justify-content: space-around;
+	background: powderblue;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#scope > .scope-entry {
+	text-align: center;
+	background:powderblue;
+}
+
+#scope > .scope-entry > .value {
+	font-size: 14px;
+	font-weight: 700;
+	background:powderblue;
+}
+.details{
+	margin-left: 14px;
+}
+p { margin:4px; }
+
+hr {
+	margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 2px solid black;
+}
+.details1{
+	margin-left: -52px;
+}

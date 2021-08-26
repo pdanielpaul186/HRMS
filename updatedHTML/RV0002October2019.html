@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payslip</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+<style>
+    page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+    width: 21cm;
+    height: 25.7cm;
+}
+    body {
+        background: #f0f0f0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        height: 100%;
+        
+    }
+
+    /* @import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,600,700'); */
+
+    * {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 14px;
+        color: #444;
+    }
+
+    #payslip {
+        width: calc(8.5in - 40px);
+        height: calc(11in - 5px);
+        background: white;
+        padding: 30px 40px;
+    }
+
+
+
+    #title {
+        margin-bottom: 20px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    #month {
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    #address {
+        margin-bottom: 10px;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: right;
+
+    }
+
+   
+
+    .footer-rectangle {
+        height: 39px;
+        width: 700px;
+        border-style: solid;
+        border-color: black;
+        margin-left: -3px;
+    }
+
+    .rectangle1 {
+    height: 88% !important;
+    width: 699px;
+    border-style: solid;
+    border-color: black;
+    margin-left: 47px;
+    margin-top: 46px;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+
+        text-align: left;
+        padding: 8px;
+
+    }
+
+    #scope {
+        border-top: 1px solid powderblue;
+        border-bottom: 1px solid powderblue;
+        display: flex;
+        justify-content: space-around;
+        background: powderblue;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    #scope>.scope-entry {
+        text-align: center;
+        background: powderblue;
+    }
+
+    #scope>.scope-entry>.value {
+        font-size: 14px;
+        font-weight: 700;
+        background: powderblue;
+    }
+
+    .details {
+        margin-left: 14px;
+    }
+
+    p {
+        margin: 4px;
+    }
+
+    hr {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border: 0;
+        border-top: 2px solid black;
+    }
+
+    .details1 {
+        margin-left: -52px;
+    }
+</style>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 5px;
+        border-spacing: 3x;
+        border: 1px solid black;
+        text-align: left;
+    }
+
+    .h {
+        border: 0px solid black;
+    }
+
+    td colspan {
+        border: 0px solid red;
+    }
+
+    td,
+    td[colspan="2"] {
+        border: 1px solid gray;
+        padding: 0.2em;
+    }
+    tr{
+        text-align: center;
+    }
+</style>
+
+<body>
+
+<script type="text/javascript">
+function numberWithCommas(input) {
+var value = input | 0;
+if(value == 0){
+return value.toFixed(2);
+// var value = input | 0;
+// console.log("valueee::",value)
+}
+else
+{
+if (! isNaN(input)) {
+var tofixed=parseFloat(input).toFixed(2);
+// var currencySymbol = '₹';
+//var output = Number(input).toLocaleString('en-IN'); <-- This method is not working fine in all browsers!
+var result = tofixed.toString().split('.');
+
+var lastThree = result[0].substring(result[0].length - 3);
+var otherNumbers = result[0].substring(0, result[0].length - 3);
+if (otherNumbers != '')
+lastThree = ',' + lastThree;
+var output = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+if (result.length > 1) {
+output += "." + result[1];
+}
+
+return output;
+}
+}
+}
+</script>
+
+
+        <page size="A4">
+    <div>
+
+        <div class="rectangle1">
+<table style="width: 100%;
+margin-left: 0px;">
+ <tr>
+                        <td colspan="2" style='border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                        <img src="./logo.png" class="user-image" style="margin-top: 0px;
+        height: 35px;
+        width: 113px;
+        margin-left: 10px;" alt="User Image" />
+   
+                        </td>
+                        
+                        <td colspan="2"style='border-right:none;border-left:none;border-bottom:none;border-top:none'>
+<h4 style="text-align: center;font-weight: bold;margin-right: 94px;">Payslip for the month of October,2019</h4>
+                        </td>
+                        
+                    </tr>
+</table>
+
+            
+            <hr>
+            
+
+            <!-- <div class="row">
+                <table style="width: 96%;margin-left: 14px;">
+                    
+
+
+                </table>
+
+            </div> -->
+
+            <div class="row">
+                <table style="width: 96%;margin-left: 14px;">
+                    <tr>
+                        <th colspan="4" style="text-align:center;border-right:none;border-left:none;border-top:none">
+                            Employee Details</th>
+
+                    </tr>
+
+            
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none;width:23%'><b>Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b>
+                        </td>
+                        <td style='text-align:left;border-left:none;border-bottom:none;border-top:none;width:22%'>Mohan
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none;width:18%'><b>Employee Code</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b>
+                        </td>
+                        <td
+                            style='text-align:left;border-right:none;border-left:none;border-bottom:none;border-top:none;width:22%'>
+                            RV0002</td>
+                    </tr>
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Date Of Birth</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b>
+                        </td>
+                        <td style='text-align:left;border-left:none;border-bottom:none;border-top:none'>13-Jul-86
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Date Of
+                            Joining</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b>
+                        </td>
+                        <td
+                            style='text-align:left;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            4 Jul 18</td>
+                    </tr>
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Designation</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b>
+                        </td>
+                        <td style='text-align:left;border-left:none;border-bottom:none;border-top:none'>Senior System Analyst
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>PF Number</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>:</b>
+                        </td>
+                        <td
+                            style='text-align:left;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            N/A</td>
+                    </tr>
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Employee Bank</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> :</b>
+                        </td>
+                        <td style='text-align:left;border-left:none;border-bottom:none;border-top:none'>ICICI Bank
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>ESI Number</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> :</b>
+                        </td>
+                        <td
+                            style='text-align:left;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            N/A</td>
+                    </tr>
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-top:none'><b>Bank Account
+                            Number</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> :</b>
+                        </td>
+                        <td style='text-align:left;border-left:none;border-top:none'>024401556789
+                        </td>
+                        <td style='border-right:none;border-left:none;border-top:none'><b>PAN Number</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> :</b>
+                        </td>
+                        <td style='text-align:left;border-right:none;border-left:none;border-top:none'>
+                            BKJKG1742L</td>
+                    </tr>
+
+                </table>
+              
+                <table style="width: 96%;margin-left: 14px;">
+                    <tr>
+                        <th colspan="4" style="text-align:center;border-right:none;border-left:none;border-top:none">
+                            Payslip Details</th>
+
+                    </tr>
+
+                    <tr>
+                        <th style="text-align:left;border-right:none;border-left:none;border-top:none;width: 35%"><b>Earnings</b></th>
+                        <th style="text-align:right;border-left:none;border-top:none">Amount(₹)</th>
+                        <th style="text-align:left;border-right:none;border-left:none;border-top:none"><b>Deductions</b></th>
+                        <th style="text-align:right;border-right:none;border-left:none;border-top:none">Amount(₹)</th>
+                    </tr>
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Basic Salary</b>
+                        </td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>{{numberWithCommas(basic)}}
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Provident Fund</b>
+                        </td>
+                        <td style='text-align:right;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            numberWithCommas(3,200)</td>
+                    </tr>
+                    <tr>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>House Rent Allowance</b>
+                            </td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>{{numberWithCommas(hra)}}
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>ESIC</b></td>
+                        <td
+                            style='text-align:right;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            {{numberWithCommas(esic)}}</td>
+                    </tr>
+                    <tr>
+                        <!-- <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Conveyance</b>
+                        </td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>1,600.00
+                        </td> -->
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Travel
+                            Allowances</b></td>
+                    <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>{{numberWithCommas(ta)}}
+                    </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>TDS</b></td>
+                        <td
+                            style='text-align:right;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            {{numberWithCommas(tds)}}</td>
+                    </tr>
+                    <tr>
+                        <!-- <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Medical &
+                                other Allowances</b></td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>1,250.00
+                        </td> -->
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Special
+                                Allowances</b></td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>{{numberWithCommas(sa)}}
+                        </td>
+                        <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Professional
+                                Tax</b></td>
+                        <td
+                            style='text-align:right;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            {{numberWithCommas(pt)}}</td>
+                    </tr>
+                    <tr>
+                        <!-- <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Travel
+                                Allowances</b></td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>0.00
+                        </td> -->
+                        <!-- <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Loans and
+                                Advances</b></td>
+                        <td
+                            style='text-align:right;border-right:none;border-left:none;border-bottom:none;border-top:none'>
+                            0</td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'><b>Special
+                                Allowances</b></td>
+                        <td style='text-align:right;border-left:none;border-bottom:none;border-top:none'>20,483.33
+                        </td> -->
+                        <td style='border-right:none;border-left:none;border-top:none'><b>Bonus</b></td>
+                        <td style='text-align:right;border-left:none;border-top:none'>{{numberWithCommas(bonus)}}</td>
+                        <td style='border-right:none;border-left:none;border-top:none'><b>Any Other
+                                Deduction</b></td>
+                        <td
+                            style='text-align:right;border-left:none;border-top:none'>{{numberWithCommas(aod)}}</td>
+                    </tr>
+                    <!-- <tr>
+                        <td style='border-right:none;border-left:none;border-top:none'><b>Bonus</b></td>
+                        <td style='text-align:right;border-left:none;border-top:none'>1.00</td>
+                        <td style='border-left:none;border-top:none;border-right: none;'></td>
+                        <td style='text-align:right;border-right:none;border-top:none;border-left:none;'></td>
+                    </tr> -->
+                    <tr>
+                        <td style="text-align:left;border-right:none;border-left:none;border-top:none"><b>Gross
+                                Earnings(A)</b></td>
+                        <td style="text-align:right;border-left:none;border-top:none"><b>{{numberWithCommas(GEA)}}</b></td>
+                        <td style="text-align:left;border-right:none;border-left:none;border-top:none"><b>Gross
+                                Deductions(B)</b></td>
+                        <td style="text-align:right;border-right:none;border-left:none;border-top:none">
+                            <b>{{numberWithCommas(GDB)}}</b></td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <p class="deductions" id="number"><b>Net Salary Payable(A-B)</b>
+                &nbsp;&nbsp;
+                : &nbsp;₹{{numberWithCommas(nsp)}}</p>
+
+            <hr>
+            <span id="words">
+            <p class="deductions" ><b>Amount in words :</b> Fifty Two Thousands Nine Hundred Thirty Three Rupees Only.</p>
+            <p><b>(In Indian Rupees)</b></p></span>
+
+            <hr>
+
+
+          
+         <div>
+            <table>
+              
+                <tr>
+                    <th style="text-align: center;">Total Days</th>
+                    <th style="text-align: center;">Total Salary Days</th>
+                    <th style="text-align: center;">Loss of Pay Days</th>
+                    <th style="text-align: center;">Leave Balance - EOM</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">30</td>
+                    <td style="text-align: center;">30</td>
+                    <td style="text-align: center;">0</td>
+                    <td style="text-align: center;">12</td>
+                </tr>
+            </table>
+</div>
+            <table>
+                <tr>
+                    <th colspan="5" style="text-align: center;">Payment Details</th>
+                </tr>
+                <tr>
+                    <th>Mode of Payment</th>
+                    <th>Date</th>
+                    <th>Employee Bank</th>
+                    <th>Account Number</th>
+                    <th>Amount(₹)</th>
+                </tr>
+                <tr>
+                    <td>NEFT</td>
+                    <td>3-May-19</td>
+                    <td>ICICI Bank</td>
+                    <td>024401556789</td>
+                    <td>{{numberWithCommas(nsp)}}</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: center;">
+                        <b>*Deductions are as per tax applicable and Company Policy</b>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: center;">
+                        <p style="font-size: 10px;">Real Variable Digital Assetservices Pvt Ltd.190/2RT,H.No.10-3-509, Vijaya nagar colony,
+                            Hyderabad-500057, Telangana, India,CIN No.U72900TG2017PTC119270</p>
+
+                    </td>
+                </tr>
+
+                
+            </table>
+
+        </div>
+    </div>
+    <br>
+    <b style="text-align: center;margin-left: 179px;">Note : This is electronically generated payslip, doesn’t require any
+        signature</b>
+       
+                          
+</page>
+</body>
+
+</html>
